@@ -1,29 +1,62 @@
 <!DOCTYPE html>
-<html lang="ko-kr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevTool · 코드 실행기</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <script src="/cdn/js/move_animation.js" defer></script>
+  <meta charset="UTF-8">
+  <title>DevTool · 언어 선택</title>
+  <link rel="preload" href="/cdn/js/move_animation.js" as="script">
+  <script src="/cdn/js/move_animation.js" defer></script> 
+  <style>
+    body,html{width: 100%;height: 100%;overflow: hidden;}
+    button[onclick="location.href = `/`"]{position: absolute;top: 5px;left: 5px; background: transparent;color: #fff;z-index: 9;position: fixed;border: none;margin-left: 10px;margin-top: 10px;transition: transform ease-in-out .1s;}
+    body > button:hover{transform: scale(1.025);}
+    body > button:focus{transform: scale(0.975);}
+    body {
+      margin: 0;
+      background: #0d1117;
+      font-family: sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 20px;
+    }
+    select {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: white;
+      padding: 10px 14px;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+    button[onclick="go()"]{
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      background: #238636;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-<button onclick="location.href = `/`"><- 메인 화면으로 돌아가기</button>
-<div id="aurora"></div>
-<div class="content_root">
-    
-</div>
-<script type="module">
-  import { createAurora } from "./bg.js";
-  createAurora({
-    container: "#aurora",
-    amplitude: 0.75,
-    blend: 1,
-    speed: 1.0,
-    colorStops: ["#ac39f9", "#b19eef", "#5227ff"]
-  });
-</script>
-<script type="module" src="script.js" defer></script>
+    <button onclick="location.href = `/`"><- 메인 화면으로 돌아가기</button>
+  <h1>언어 선택</h1>
+
+  <select id="lang">
+    <option value="python">Python</option>
+  </select>
+
+  <button onclick="go()">확인</button>
+
+  <script>
+    function go() {
+      const lang = document.getElementById("lang").value;
+      location.href = `/code/${lang}`;
+    }
+  </script>
+
 </body>
 </html>

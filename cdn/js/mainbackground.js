@@ -124,30 +124,31 @@ Promise.all(
         selector: "#grid",
         items: ["cdn/c++.webp",
         "cdn/go.webp",
-        "cdn/java.webp",
+        
         "cdn/js.webp",
         "cdn/kotlin.webp",
         "cdn/python.webp","cdn/c++.webp",
         "cdn/go.webp",
-        "cdn/java.webp",
+        
         "cdn/js.webp",
         "cdn/kotlin.webp",
         "cdn/python.webp","cdn/c++.webp",
         "cdn/go.webp",
-        "cdn/java.webp",
+        
         "cdn/js.webp",
         "cdn/kotlin.webp",
         "cdn/python.webp","cdn/c++.webp",
         "cdn/go.webp",
-        "cdn/java.webp",
+        
         "cdn/js.webp",
         "cdn/kotlin.webp",
         "cdn/python.webp","cdn/c++.webp",
         "cdn/go.webp",
-        "cdn/java.webp",
+        
         "cdn/js.webp",
         "cdn/kotlin.webp",
-        "cdn/python.webp",],
+        "cdn/python.webp","cdn/c++.webp",
+        "cdn/go.webp","cdn/c++.webp"],
         gradientColor: "#0f0f0f"
     });
 });
