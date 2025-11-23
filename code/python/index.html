@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevTool · Python 코드 실행기</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preload" href="/cdn/css/font.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js" as="script">
@@ -12,6 +13,12 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js" as="script">
     <link rel="preload" href="/cdn/js/move_animation.js" as="script">
     <link rel="preload" href="style.css" as="style">
+    <link rel="modulepreload" href="/cdn/js/aurora.js">
+    <link rel="modulepreload" href="script.js">
+    <link rel="preload" href="python-worker.js" as="script">
+    <link rel="modulepreload" href="python.mjs">
+    <link rel="preload" href="python.wasm" as="fetch" type="application/wasm">
+    <link rel="preload" href="python314.zip" as="fetch" type="application/zip">
     <link rel="stylesheet" href="style.css"> 
     <link href="/cdn/css/font.css" rel="stylesheet">
     <style>
