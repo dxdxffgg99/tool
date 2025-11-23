@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevTool · Javascript 코드 실행기</title>
-    <meta name="description" content="브라우저에서 자바스크립트 코드를 바로 실행하고 결과를 확인할 수 있는 DevTool JavaScript 코드 실행기.">
+    <title>DevTool · Lua 코드 실행기</title>
+    <meta name="description" content="브라우저에서 루아스크립트 코드를 바로 실행하고 결과를 확인할 수 있는 DevTool Lua 코드 실행기.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="/code/javascript/">
+    <link rel="canonical" href="/code/lua/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ko_KR">
     <meta property="og:site_name" content="DevTool">
-    <meta property="og:title" content="DevTool · JavaScript 코드 실행기">
-    <meta property="og:description" content="브라우저에서 격리된 환경으로 JavaScript 코드를 즉시 실행하세요.">
+    <meta property="og:title" content="DevTool · Lua 코드 실행기">
+    <meta property="og:description" content="브라우저에서 격리된 환경으로 루아스크립트 코드를 즉시 실행하세요.">
     <meta property="og:url" content="/code/javascript/">
     <meta property="og:image" content="/favicon.ico">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="DevTool · JavaScript 코드 실행기">
-    <meta name="twitter:description" content="온라인으로 자바스크립트 코드를 실행하고 결과를 확인하세요.">
+    <meta name="twitter:title" content="DevTool · Lua 코드 실행기">
+    <meta name="twitter:description" content="온라인으로 루아스크립트 코드를 실행하고 결과를 확인하세요.">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preload" href="/cdn/css/font.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/lua/lua.min.js" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js" as="script">
     <link rel="preload" href="/cdn/js/move_animation.js" as="script">
@@ -36,7 +36,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/lua/lua.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
     <script src="/cdn/js/move_animation.js" defer></script> 
@@ -46,9 +46,9 @@
 <div id="aurora"></div>
 <div class="content_root">
     <div class="top_header">
-        <p>Javascript Code Runner</p>
+        <p>Lua Code Runner</p>
         <div id="status_outer" style="background: #3498DB;">
-            <p>상태 : <span id="status">vm 로딩 중...</span></p>
+            <p>상태 : <span id="status">WASM 로딩 중...</span></p>
         </div>
         <div>
             <button id="runCodeBtn" disabled>실행</button>
@@ -70,7 +70,7 @@
         amplitude: 0.75,
         blend: 1,
         speed: 1.0,
-        colorStops: ["#FFFF34", "#54934F", "#377CC8"]
+        colorStops: ["#00007C", "#ffffff", "#00007C"]
     });
 </script>
 <script type="module" src="script.js"></script>

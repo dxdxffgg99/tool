@@ -33,7 +33,7 @@ body > button:focus{transform: scale(0.975);}
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
     gap: 20px;
     width: min(960px, 100%);
     z-index: 1;
