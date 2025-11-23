@@ -21,11 +21,10 @@ uniform float uAmplitude;
 uniform vec3 uColorStops[3];
 uniform vec2 uResolution;
 uniform float uBlend;
-uniform vec2 uMouse;   // ⭐ 마우스 좌표 추가
+uniform vec2 uMouse;
 
 out vec4 fragColor;
 
-// --- Perlin Noise Functions ---
 vec3 permute(vec3 x) {
   return mod(((x * 34.0) + 1.0) * x, 289.0);
 }
@@ -70,7 +69,6 @@ float snoise(vec2 v){
   return 130.0 * dot(m, g);
 }
 
-// --- ColorStop Struct ---
 struct ColorStop {
   vec3 color;
   float position;
@@ -94,7 +92,6 @@ void main() {
 
   vec2 uv = gl_FragCoord.xy / uResolution;
 
-  // color ramp
   ColorStop colors[3];
   colors[0] = ColorStop(uColorStops[0], 0.0);
   colors[1] = ColorStop(uColorStops[1], 0.5);
@@ -103,7 +100,6 @@ void main() {
   vec3 rampColor;
   COLOR_RAMP(colors, uv.x, rampColor);
 
-  // aurora noise
   float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) 
                   * 0.5 * uAmplitude;
   height = exp(height);
@@ -117,14 +113,11 @@ void main() {
 
   vec3 auroraColor = intensity * rampColor;
 
-  // =======================================================
-  //  ⭐ Mouse Glow Light (빛광원)
-  // =======================================================
-  vec2 lightUV = uMouse / uResolution;    // 0~1
+  vec2 lightUV = uMouse / uResolution;
   float dist = distance(uv, lightUV);
 
-  float glow = exp(-dist * 8.0);          // falloff
-  vec3 glowColor = vec3(1.0, 1.0, 1.0);   // white light
+  float glow = exp(-dist * 8.0);
+  vec3 glowColor = vec3(1.0, 1.0, 1.0);
 
   vec3 finalColor = auroraColor * auroraAlpha 
                   + glowColor * glow * 0.3;
@@ -174,16 +167,13 @@ export function createAurora({
       uColorStops: { value: colorStopsArray },
       uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
       uBlend: { value: blend },
-      uMouse: { value: [0, 0] }     // ⭐ 추가
+      uMouse: { value: [0, 0] }
     },
   });
 
   const mesh = new Mesh(gl, { geometry, program });
   ctn.appendChild(gl.canvas);
 
-  // -----------------------------
-  // Resize
-  // -----------------------------
   function resize() {
     const w = ctn.offsetWidth;
     const h = ctn.offsetHeight;
@@ -193,9 +183,6 @@ export function createAurora({
   window.addEventListener("resize", resize);
   resize();
 
-  // -----------------------------
-  // ⭐ Mouse Event
-  // -----------------------------
   window.addEventListener("mousemove", (e) => {
     const rect = ctn.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -203,9 +190,6 @@ export function createAurora({
     program.uniforms.uMouse.value = [x, y];
   });
 
-  // -----------------------------
-  // Render Loop
-  // -----------------------------
   let raf = 0;
   function loop(t) {
     raf = requestAnimationFrame(loop);

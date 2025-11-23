@@ -1,0 +1,47 @@
+*{margin: 0;padding: 0;}
+body,html{height: 100%;width: 100%;background-color: #000;}
+body > button{background: transparent;color: #fff;z-index: 9;position: fixed;border: none;margin-left: 10px;margin-top: 10px;transition: transform ease-in-out .1s;}
+body > button:hover{transform: scale(1.025);}
+body > button:focus{transform: scale(0.975);}
+#aurora canvas,#aurora{
+  width: 100%;height: 100%;position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+::-webkit-scrollbar{display: none;}
+
+.content_root {
+    width: 80%;
+    height: 80%;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.top_header{
+  display: flex;
+  text-align: center;
+  height: 30px;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.top_header p{margin: 0 15px 0 15px;font-family: "Mona Sans";}
+
+.top_header #status_outer{background-color: #555;margin: 0px;border-radius: 15px;align-items: center;text-align: center;margin-left: 5px;}
+.top_header #status_outer p{font-size: 15px;position: relative;top: 50%;transform: translateY(-50%);}
+#log{background-color: #1e1e1e; color: #ffffff; padding: 10px; border: 1px solid #666; overflow: auto; height: 100%;font-size: 12px;}
+.code-editor-container{height: 100%;}
+.code_input{height: 60%;}
+.output_area{margin-top: 20px;height: 30%;}
+#runCodeBtn{padding: 5px 10px; background-color: #3498DB; color: white; border: none;position: absolute;right: 10px;border-radius: 5px;}
+.CodeMirror{font-size: 14px;}

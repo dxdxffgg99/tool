@@ -7,7 +7,7 @@
     <link rel="preload" href="/cdn/css/font.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js" as="script">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js" as="script">
     <link rel="preload" href="/cdn/js/move_animation.js" as="script">
@@ -19,7 +19,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
     <script src="/cdn/js/move_animation.js" defer></script> 
@@ -29,12 +29,12 @@
 <div id="aurora"></div>
 <div class="content_root">
     <div class="top_header">
-        <p>Python Code Runner</p>
+        <p>Javascript Code Runner</p>
         <div id="status_outer" style="background: #3498DB;">
-            <p>상태 : <span id="status">WASM 로딩 중...</span></p>
+            <p>상태 : <span id="status">vm 로딩 중...</span></p>
         </div>
         <div>
-            <button id="runCodeBtn" disabled>로딩 중...</button>
+            <button id="runCodeBtn" disabled>실행</button>
         </div>
     </div>
     <div class="code_input">
@@ -46,7 +46,6 @@
         <pre id="log"></pre>
     </div>
 </div>
-
 <script type="module">
     import { createAurora } from "/cdn/js/aurora.js";
     createAurora({
@@ -54,10 +53,9 @@
         amplitude: 0.75,
         blend: 1,
         speed: 1.0,
-        colorStops: ["#3570A0", "#FFE66A", "#898989"]
+        colorStops: ["#FFFF34", "#377CC8", "#54934F"]
     });
 </script>
-
 <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-const style = document.createElement("style");
-style.textContent = `
+const style_moveani = document.createElement("style");
+style_moveani.textContent = `
 body {
     background: #000;
 }
@@ -19,7 +19,7 @@ body {
     transform: scale(1.05) !important;
 }
 `;
-document.head.appendChild(style);
+document.head.appendChild(style_moveani);
 
 document.documentElement.style.visibility = "hidden";
 
