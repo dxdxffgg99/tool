@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTool · url 확장 api</title>
+    <meta name="description" content="url 확장 api.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="/exurl/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="DevTool">
+    <meta property="og:title" content="DevTool · 개발을 빠르게, 쉽게">
+    <meta property="og:description" content="url 확장 api.">
+    <meta property="og:url" content="/">
+    <meta property="og:image" content="/cdn/og_image.webp">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="DevTool · 개발을 빠르게, 쉽게">
+    <meta name="twitter:description" content="url 확장 api.">
+
+    <link rel="preload" href="/cdn/css/font.css" as="style">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="/cdn/js/move_animation.js" as="script">
+
+    <link href="/cdn/css/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/cdn/js/move_animation.js" defer></script>
+</head>
+<body>
+    <button onclick="location.href = '/'"><-메인 화면으로 돌아가기</button>
+    <div class="dt-page">
+
+        <main class="dt-main">
+            <section class="dt-hero">
+                <div class="dt-hero-text">
+                    <h1>URL 확장 API</h1>
+                    <p>
+                        하나의 URL로 상태 코드, 헤더, 리다이렉트 체인, 최종 주소까지 한 번에 가져오는 인스펙터 API.
+                        네트워크 디버깅, 링크 검증, 미리보기용으로 쓸 수 있어요.
+                    </p>
+                </div>
+            </section>
+
+            <section class="dt-layout">
+                <div class="dt-panel dt-panel-primary">
+                    <h2>실시간 테스트</h2>
+                    <form id="exurl-form" class="dt-form">
+                        <label for="exurl-input">검사할 URL</label>
+                        <div class="dt-form-row">
+                            <input
+                                id="exurl-input"
+                                name="url"
+                                type="url"
+                                spellcheck="false"
+                                placeholder="https://example.com"
+                                required
+                            >
+                            <button type="submit" id="exurl-submit">요청 보내기</button>
+                        </div>
+
+                        <div class="dt-form-options">
+                            <label class="dt-checkbox">
+                                <input id="exurl-follow" type="checkbox" checked>
+                                <span>리다이렉트 자동 추적</span>
+                            </label>
+                            <label class="dt-checkbox">
+                                <input id="exurl-headonly" type="checkbox">
+                                <span>HEAD 요청만 (본문 제외)</span>
+                            </label>
+                        </div>
+                    </form>
+
+                    <div class="dt-result-wrapper">
+                        <div class="dt-result-header">
+                            <span id="exurl-status-pill" class="dt-status-pill dt-status-idle">대기 중</span>
+                            <span id="exurl-meta" class="dt-meta"></span>
+                        </div>
+                        <pre id="exurl-result" class="dt-code dt-code-scroll">요청을 보내면 이곳에 JSON 응답이 표시됩니다.</pre>
+                    </div>
+                </div>
+
+                <aside class="dt-panel dt-panel-secondary">
+                    <h2>API 스펙</h2>
+
+                    <div class="dt-doc-block">
+                        <h3>엔드포인트</h3>
+                        <pre class="dt-code">GET https://exurl-api.dxdxffg.com/api/exurl?url=&lt;ENCODED_URL&gt;</pre>
+                    </div>
+
+                    <div class="dt-doc-block">
+                        <h3>쿼리 파라미터</h3>
+                        <ul class="dt-list">
+                            <li><code>url</code> (필수): 검사할 대상 URL</li>
+                            <li><code>follow</code> (선택): <code>1</code>이면 리다이렉트 체인 추적</li>
+                            <li><code>head</code> (선택): <code>1</code>이면 HEAD 기반 검사</li>
+                        </ul>
+                    </div>
+
+                    <div class="dt-doc-block">
+                        <h3>응답 예시</h3>
+                        <pre class="dt-code dt-code-scroll">{
+  "ok": true,
+  "requestedUrl": "https://example.com",
+  "finalUrl": "https://www.example.com/",
+  "status": 200,
+  "statusText": "OK",
+  "redirects": [
+    {
+      "from": "https://example.com",
+      "to": "https://www.example.com/",
+      "status": 301
+    }
+  ],
+  "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "server": "cloudflare"
+  },
+  "timing": {
+    "dns": 13,
+    "tls": 42,
+    "firstByte": 87,
+    "total": 123
+  }
+}</pre>
+                    </div>
+
+                    <div class="dt-doc-block">
+                        <h3>curl 예시</h3>
+                        <pre class="dt-code">curl https://exurl-api.dxdxffg.com/api/exurl?url=https://example.com/"</pre>
+                    </div>
+
+                    <div class="dt-doc-block">
+                        <h3>JavaScript 예시</h3>
+                        <pre class="dt-code dt-code-scroll">async function inspectUrl(url) {
+  const endpoint = "/api/exurl?url=" + encodeURIComponent(url);
+  const res = await fetch(endpoint);
+  if (!res.ok) throw new Error("HTTP " + res.status);
+  const data = await res.json();
+  console.log(data);
+  return data;
+}</pre>
+                    </div>
+
+                    <div class="dt-doc-block">
+                        <h3>주의사항</h3>
+                        <ul class="dt-list">
+                            <li>이 API 자체는 서버/워커에서 실행되므로, 클라이언트의 CORS 제약을 우회할 수 있습니다.</li>
+                            <li>프록시 역할을 하기 때문에 민감한 내부망 주소를 그대로 넘기지 않도록 주의하세요.</li>
+                            <li>폭주 방지를 위해 도메인 화이트리스트, 레이트 리밋 등을 적용하는 걸 권장합니다.</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

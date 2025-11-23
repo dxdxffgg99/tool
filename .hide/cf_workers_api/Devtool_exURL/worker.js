@@ -1,32 +1,32 @@
-export default {
-  async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    const path = url.pathname;
-
-    if (path === "/api/env") {
-      return handleEnv(request);
-    }
-
-    if (path === "/api/inspect") {
-      return handleInspect(request, url);
-    }
-
-    if (path === "/api/file") {
-      return handleProxyFile(request, url);
-    }
-
-    return new Response("Not found", { status: 404 });
-  }
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, *"
 };
 
-function badRequest(msg) {
+function json(body, status = 200, extraHeaders = {}) {
+  const headers = new Headers({
+    "Content-Type": "application/json; charset=utf-8",
+    ...CORS_HEADERS,
+    ...extraHeaders
+  });
+
   return new Response(
-    JSON.stringify({ ok: false, error: msg }),
-    {
-      status: 400,
-      headers: { "Content-Type": "application/json" }
-    }
+    typeof body === "string" ? body : JSON.stringify(body),
+    { status, headers }
   );
+}
+
+function badRequest(msg) {
+  return json({ ok: false, error: msg }, 400);
+}
+
+function notFound() {
+  return json({ ok: false, error: "Not found" }, 404);
+}
+
+function methodNotAllowed() {
+  return json({ ok: false, error: "Method not allowed" }, 405);
 }
 
 function safeTargetUrl(raw) {
@@ -42,6 +42,39 @@ function safeTargetUrl(raw) {
   }
   return u;
 }
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+    const method = request.method.toUpperCase();
+
+    if (method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: CORS_HEADERS
+      });
+    }
+
+    if (path === "/api/env") {
+      if (method !== "GET" && method !== "HEAD") return methodNotAllowed();
+      return handleEnv(request);
+    }
+
+    // /api/inspect 와 /api/exurl 둘 다 같은 기능
+    if (path === "/api/inspect" || path === "/api/exurl") {
+      if (method !== "GET" && method !== "HEAD") return methodNotAllowed();
+      return handleInspect(request, url);
+    }
+
+    if (path === "/api/file") {
+      if (method !== "GET" && method !== "HEAD") return methodNotAllowed();
+      return handleProxyFile(request, url);
+    }
+
+    return notFound();
+  }
+};
 
 // /api/env
 function handleEnv(request) {
@@ -63,10 +96,7 @@ function handleEnv(request) {
     botManagement: cf.botManagement || undefined
   };
 
-  return new Response(JSON.stringify(data), {
-    status: 200,
-    headers: { "Content-Type": "application/json" }
-  });
+  return json(data, 200);
 }
 
 // /api/inspect?url=...&method=HEAD|GET
@@ -112,10 +142,7 @@ async function handleInspect(request, requestUrl) {
   }
 
   if (!lastRes) {
-    return new Response(
-      JSON.stringify({ ok: false, error: "요청 실패" }),
-      { status: 502, headers: { "Content-Type": "application/json" } }
-    );
+    return json({ ok: false, error: "요청 실패" }, 502);
   }
 
   const headersObj = {};
@@ -141,12 +168,10 @@ async function handleInspect(request, requestUrl) {
     isImage
   };
 
-  return new Response(JSON.stringify(body), {
-    status: 200,
-    headers: { "Content-Type": "application/json" }
-  });
+  return json(body, 200);
 }
 
+// /api/file?url=...&download=1
 async function handleProxyFile(request, requestUrl) {
   const targetRaw = requestUrl.searchParams.get("url");
   const download = requestUrl.searchParams.get("download") === "1";
@@ -179,7 +204,10 @@ async function handleProxyFile(request, requestUrl) {
   }
 
   if (!lastRes) {
-    return new Response("fetch failed", { status: 502 });
+    return new Response("fetch failed", {
+      status: 502,
+      headers: CORS_HEADERS
+    });
   }
 
   const hopByHop = new Set([
@@ -201,6 +229,9 @@ async function handleProxyFile(request, requestUrl) {
   }
 
   headers.set("Cache-Control", "no-store");
+  for (const [k, v] of Object.entries(CORS_HEADERS)) {
+    headers.set(k, v);
+  }
 
   if (download) {
     const name = current.pathname.split("/").pop() || "download";
