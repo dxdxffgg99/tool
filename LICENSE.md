@@ -19,20 +19,3 @@
 
 ## 동의 (Agreement)
 본 소스코드를 사용하는 즉시 위 모든 조건에 동의한 것으로 간주합니다.
-
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="28" role="img" aria-label="Credit: TERABYTE">
-  <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#4A00E0"/>
-    <stop offset="100%" stop-color="#8E2DE2"/>
-  </linearGradient>
-
-  <rect width="150" height="28" rx="4" fill="url(#grad)"/>
-  <text x="75" y="18"
-        text-anchor="middle"
-        font-family="Segoe UI, Ubuntu, sans-serif"
-        font-size="13"
-        fill="white"
-        font-weight="600">
-    【TERABYTE】
-  </text>
-</svg>
