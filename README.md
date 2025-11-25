@@ -1,7 +1,7 @@
 # Devtool  
 **TERABYTE**  DevTool
 
-[웹사이트 들어가보기](https://dxdxffg.com/)
+[웹사이트 들어가보기](https://devtool.co.kr/)
 
 ---
 
