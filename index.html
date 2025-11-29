@@ -1,81 +1,378 @@
 <!DOCTYPE html>
-<html lang="ko-kr">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevTool · 개발을 빠르게, 쉽게</title>
-    <meta name="description" content="온라인 개발 도구 DevTool.">
-    <link rel="preload" href="cdn/js/move_animation.js" as="script">
-    <script src="cdn/js/move_animation.js" defer></script>
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://devtool.co.kr/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ko_KR">
-    <meta property="og:site_name" content="DevTool">
-    <meta property="og:title" content="DevTool · 개발을 빠르게, 쉽게">
-    <meta property="og:description" content="온라인 개발 도구 DevTool.">
-    <meta property="og:url" content="/">
-    <meta property="og:image" content="/cdn/og_image.webp">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="DevTool · 개발을 빠르게, 쉽게">
-    <meta name="twitter:description" content="온라인 개발 도구 DevTool.">
-    <link rel="preload" href="cdn/css/font.css" as="style">
-    <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="cdn/css/mainbackground.css" as="style">
-    <link rel="preload" href="cdn/js/gsap.min.js" as="script">
-    <link rel="preload" href="cdn/js/mainbackground.js" as="script">
-    <link rel="preload" href="cdn/c++.webp" as="image" type="image/webp">
-    <link rel="preload" href="cdn/go.webp" as="image" type="image/webp">
-    <link rel="preload" href="cdn/js.webp" as="image" type="image/webp">
-    <link rel="preload" href="cdn/kotlin.webp" as="image" type="image/webp">
-    <link rel="preload" href="cdn/python.webp" as="image" type="image/webp">
-    <link href="cdn/css/font.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cdn/css/mainbackground.css">
-    <script src="cdn/js/gsap.min.js" defer></script>
-    
-    <script>
-    const preloadImages = [
-        "cdn/c++.webp",
-        "cdn/go.webp",
-        "cdn/js.webp",
-        "cdn/kotlin.webp",
-        "cdn/python.webp"
-    ];
-    preloadImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-    </script>
+  <meta charset="UTF-8" />
+  <title>DXDXFFG | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="학생 · 풀스택 개발자 DXDXFFG의 포트폴리오. 프론트엔드 성능, WebAssembly, WebGL 프로젝트와 실험을 다룹니다." />
+  <meta name="keywords" content="DXDXFFG, 포트폴리오, 프론트엔드, 성능 최적화, WebAssembly, WebGL, 학생 개발자, 풀스택" />
+  <meta name="author" content="DXDXFFG" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://dxdxffg.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="DXDXFFG | Portfolio" />
+  <meta property="og:description" content="프론트엔드 성능과 WebAssembly/WebGL 실험에 집중하는 학생 · 풀스택 개발자의 포트폴리오" />
+  <meta property="og:url" content="https://dxdxffg.com/" />
+  <meta property="og:image" content="https://dxdxffg.com/android-chrome-512x512.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DXDXFFG | Portfolio" />
+  <meta name="twitter:description" content="프론트엔드 성능과 WebAssembly/WebGL 실험에 집중하는 학생 · 풀스택 개발자의 포트폴리오" />
+  <meta name="theme-color" content="#0e1116" />
+  <link rel="preload" href="style.css" as="style" fetchpriority="high" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" as="style" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="preload" href="script.js" as="script" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "DXDXFFG",
+      "jobTitle": "학생 · 풀스택 개발자",
+      "description": "프론트엔드 성능, WebAssembly, WebGL 실험에 집중하는 개발자 포트폴리오",
+      "url": "https://github.com/dxdxffgg99",
+      "sameAs": ["https://github.com/dxdxffgg99"],
+      "knowsAbout": ["Frontend Performance", "WebAssembly", "WebGL", "JavaScript"]
+    }
+  </script>
 </head>
 <body>
-    <header>
-        <h1><a href="/">DevTool</a></h1>
-        <nav aria-label="메인 메뉴">
-            <ul>
-                <li><a href="/code/">코드 실행기</a></li>
-                <li><a href="/exurl/">파일 중계 API</a></li>
-            </ul>
+  <div id="aurora"></div>
+  <div class="page">
+    <header class="nav">
+      <div class="container nav-inner">
+        <h2 class="brand">DXDXFFG</h2>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </nav>
+        <div class="nav-right">
+          <div class="nav-tag">Student · Full-Stack Dev</div>
+        </div>
+      </div>
     </header>
     <main>
-        <div id="grid"></div>
-        <h2>DevTool</h2>
-        <h3>개발을 더 빠르고 쉽게</h3>
+      <section id="hero" class="section hero">
+        <div class="container hero-grid">
+          <div class="hero-left reveal">
+            <div class="hero-left-top">
+              <span class="hero-badge-main">학생 · 풀스택 개발자</span>
+              <span class="hero-badge-sub">프론트 · 퍼포먼스 · Web</span>
+            </div>
+            <h1 class="hero-title">
+              브라우저를 <span class="accent">한계까지</span><br />
+              뽑아쓰는 개발자, 이광민.
+            </h1>
+            <p class="hero-subtitle">
+              Web 성능 최적화, WebAssembly, WebGL 쪽을 파고드는 학생 개발자입니다.<br>
+              브라우저에서 할 수 있는 일을 끝까지 밀어붙이는 걸 좋아합니다.<br>
+              음 굳이 한마디로 표현하자면 웹에서 굳이 임베디드하는 미친사람이군요
+            </p>
+            <div class="hero-pill-row">
+              <div class="hero-pill">HTML / CSS / JS</div>
+              <div class="hero-pill">WASM / WEBGPU / WORKER</div>
+            </div>
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                프로젝트 보기
+                <span class="btn-icon">↳</span>
+              </a>
+              <a href="https://github.com/dxdxffgg99" target="_blank" rel="noreferrer" class="btn btn-ghost">
+                GitHub 열기
+              </a>
+            </div>
+            <div class="hero-meta-row">
+              <div>
+                <div class="hero-meta-label">Focus</div>
+                <div class="hero-meta-value">프론트엔드 · 퍼포먼스</div>
+              </div>
+              <div>
+                <div class="hero-meta-label">현재</div>
+                <div class="hero-meta-value">개인 프로젝트 진행중</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-right reveal">
+            <div class="hero-card">
+              <div class="hero-card-glow"></div>
+              <div class="hero-card-inner">
+                <div class="hero-card-header">
+                  <div>
+                    <div class="hero-card-title">RUNTIME DASHBOARD</div>
+                    <div class="card-kicker">브라우저에서 돌아가는 엔진</div>
+                  </div>
+                  <div class="hero-card-chip-row">
+                    <div class="hero-chip">JS</div>
+                    <div class="hero-chip">Web</div>
+                  </div>
+                </div>
+                <div class="hero-metrics">
+                  <div class="hero-metric">
+                    <div class="hero-metric-label">최적화 집착도</div>
+                    <div class="hero-metric-value">97%</div>
+                    <div class="hero-load-bar-wrap">
+                      <div class="hero-load-bar">
+                        <div class="hero-load-bar-fill"></div>
+                      </div>
+                      <span>High</span>
+                    </div>
+                  </div>
+                  <div class="hero-metric">
+                    <div class="hero-metric-label">선호 스택</div>
+                    <div class="hero-metric-value">WASM</div>
+                  </div>
+                  <div class="hero-metric">
+                    <div class="hero-metric-label">현재 프로젝트</div>
+                    <div class="hero-metric-value">Devtool</div>
+                  </div>
+                </div>
+                <div class="hero-footer">
+                  <div>
+                    <div class="hero-status-pill">
+                      <div class="hero-status-dot"></div>
+                      <span>새로운 프로젝트 제안 받는 중</span>
+                    </div>
+                  </div>
+                  <div class="hero-footer-right">
+                    프론트엔드부터 저수준 실험까지<br />
+                    <span title="포방부여.. 당신에게서 기를 받아가겠습니다">“성능.. 더 강력한 성능!!!”</span>가 원칙입니다.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-kicker">
+              <span class="section-kicker-dot"></span>
+              <span>ABOUT</span>
+            </div>
+            <h2 class="section-title">웹을 가지고 노는 학생 개발자</h2>
+            <p class="section-subtitle">
+              브라우저라는 제한된 환경 안에서 얼마나 빠르고 부드럽게, 그리고 얼마나 과감하게 구현할 수 있을지 계속 실험하고 있습니다.
+            </p>
+          </div>
+          <div class="about-layout">
+            <div class="about-main reveal">
+              <p class="about-text">
+                중학생 때부터 프론트엔드에 빠져 살다가, 성능 튜닝과 Web 기술 깊게 파는 데에 재미를 느꼈습니다.
+                DOM 장난감 수준을 넘어서, 캔버스·WebGL·WASM까지 브라우저가 허용하는 한계 근처를 노립니다.
+                코드를 짤 때는 <strong>“사용자 체감 성능”과 “개발자 경험”</strong>을 같이 신경 씁니다.
+                빠른 빌드, 가벼운 번들, 그리고 디버깅이 쉬운 구조를 좋아합니다.
+              </p>
+              <div class="about-highlight">
+                <div class="about-highlight-item">
+                  <div class="about-label">역할</div>
+                  <div class="about-value">학생 · 프론트엔드 개발자</div>
+                </div>
+                <div class="about-highlight-item">
+                  <div class="about-label">관심 분야</div>
+                  <div class="about-value">성능, WebGL/WebGPU, WASM</div>
+                </div>
+                <div class="about-highlight-item">
+                  <div class="about-label">선호 스타일</div>
+                  <div class="about-value">가볍고 빠른 코드, 무거운 연산은 브라우저 한계까지</div>
+                </div>
+              </div>
+            </div>
+            <aside class="about-side reveal">
+              <div class="about-side-panel">
+                <div class="about-side-title">최근 페이즈</div>
+                <ul class="about-side-list">
+                  <li>프론트엔드 기본기와 레이아웃에 집중</li>
+                  <li>WASM 쪽으로 점점 더 깊게 파고드는 중</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-kicker">
+              <span class="section-kicker-dot"></span>
+              <span>SKILLS</span>
+            </div>
+            <h2 class="section-title">자주 쓰는 스택과 장난감</h2>
+            <p class="section-subtitle">
+              “실제로 쓴 적 있는 것” 위주로, 브라우저에서 성능·표현력을 끌어올릴 수 있는 기술들을 좋아합니다.
+            </p>
+          </div>
+          <div class="skills-columns">
+            <div class="skills-group reveal">
+              <div class="skills-group-header">
+                <strong>Frontend Core</strong>
+                <span>UI · 렌더링</span>
+              </div>
+              <div class="skills-pills">
+                <div class="skills-pill">HTML</div>
+                <div class="skills-pill">CSS</div>
+                <div class="skills-pill">JS</div>
+                <div class="skills-pill">TS</div>
+              </div>
+              <p class="skills-note">
+                레이아웃, 상태 관리, 렌더링 최적화까지 고려해서 구조를 잡는 걸 좋아합니다.
+              </p>
+            </div>
+            <div class="skills-group reveal">
+              <div class="skills-group-header">
+                <strong>Performance & Low-Level</strong>
+                <span>Speed · Control</span>
+              </div>
+              <div class="skills-pills">
+                <div class="skills-pill hot">WASM</div>
+                <div class="skills-pill">C / C++</div>
+                <div class="skills-pill">WebGL</div>
+                <div class="skills-pill">멀티스레딩</div>
+              </div>
+              <p class="skills-note">
+                병목을 찾고, 필요한 부분은 더 저수준으로 내려가서 성능을 뽑아내는 실험을 자주 합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-kicker">
+              <span class="section-kicker-dot"></span>
+              <span>PROJECTS</span>
+            </div>
+            <h2 class="section-title">실험과 집착으로 만든 것들</h2>
+            <p class="section-subtitle">
+              개인 프로젝트 위주이며, Web 성능과 개발자 경험을 개선하는 방향으로 계속 실험하고 있습니다.
+            </p>
+          </div>
+          <div class="projects-list">
+            <article class="project-row reveal">
+              <div class="project-row-header">
+                <div>
+                  <div class="project-row-title">Devtool</div>
+                  <h3 class="project-row-name">브라우저 기반 개발자 유틸 모음</h3>
+                  <p class="project-desc">
+                    브라우저에서 바로 쓸 수 있는 작은 개발 도구들을 모아둔 웹 앱입니다.
+                    URL 인스펙션, 요청 프록시, 간단한 코드 실행기 같은 기능을 실험적으로 넣고 있습니다.
+                  </p>
+                </div>
+                <div class="project-row-meta">
+                  메인 개인 프로젝트
+                </div>
+              </div>
+              <div class="project-row-footer">
+                <div class="project-tags">
+                  <span class="project-tag">Cloudflare</span>
+                  <span class="project-tag">WASM</span>
+                  <span class="project-tag">Worker</span>
+                </div>
+                <div class="project-links">
+                  <a class="project-link-main" href="https://github.com/dxdxffgg99/Devtool" target="_blank" rel="noreferrer">
+                    GitHub 보기 <span>↗</span>
+                  </a>
+                  <a class="project-link-main" href="https://devtool.co.kr" target="_blank" rel="noreferrer">
+                    웹사이트 들어가기 <span>↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article class="project-row reveal">
+              <div class="project-row-header">
+                <div>
+                  <div class="project-row-title">WASM Playground</div>
+                  <h3 class="project-row-name">브라우저에서 돌아가는 로우레벨 연산</h3>
+                  <p class="project-desc">
+                    간단한 C/C++ 코드를 WebAssembly로 컴파일해 브라우저에서 바로 돌려보는 실험입니다.
+                    자바스크립트와 WASM 간 브릿지 비용, 성능 차이 등을 탐구합니다.
+                  </p>
+                </div>
+                <div class="project-row-meta">
+                  실험용 사이드 프로젝트
+                </div>
+              </div>
+              <div class="project-row-footer">
+                <div class="project-tags">
+                  <span class="project-tag">WebAssembly</span>
+                  <span class="project-tag">C/C++</span>
+                  <span class="project-tag">Emscripten</span>
+                </div>
+                <div class="project-links">
+                  <a class="project-link-main" href="#" onclick="return false;">
+                    WIP <span>⌛</span>
+                  </a>
+                  <span class="project-link-secondary">
+                    정리 후 공개 예정
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-kicker">
+              <span class="section-kicker-dot"></span>
+              <span>CONTACT</span>
+            </div>
+            <h2 class="section-title">같이 실험해볼 프로젝트가 있다면</h2>
+            <p class="section-subtitle">
+              웹 성능 튜닝, 재미있는 인터랙션, 실험적인 Web 프로젝트 제안 환영합니다.
+            </p>
+          </div>
+          <div class="contact-card reveal">
+            <p class="contact-text">
+              스터디, 토이 프로젝트, 실험적인 웹 서비스 아이디어 등<br />
+              부담 없이 연락 주세요. 미친짓은 웬만하면 다 좋아합니다.
+            </p>
+            <div class="contact-row">
+              <div class="contact-pill">
+                <strong>주요 채널</strong>
+                <span>GitHub Issues / 디스코드</span>
+              </div>
+              <div class="contact-pill">
+                <strong>관심 분야</strong>
+                <span>프론트 · 성능 · Web 실험</span>
+              </div>
+            </div>
+
+            <div class="contact-email">
+              <a href="https://discord.com/users/1138786750559436811" target="_blank">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="filter: invert(1);">
+                  <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                </svg>
+                디스코드
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
-        <p>© 2025【TERABYTE】<br><br><h4>Dev team</h4><br>
-        Team Leader<br>
-        <a href="https://github.com/dxdxffgg99">dxdxffg</a><br>
-        <br>
-        Devtool is Open project see on <br>
-            <a href="https://github.com/dxdxffgg99/DevTool" target="_blank">
-                <svg style="width: 24px;position:relative;top: 6px;" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                </svg>
-            </a>
-        </p>
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="footer-dot"></div>
+          <span>© <span id="year"></span> DXDXFFG · All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/dxdxffgg99" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
     </footer>
-    <script src="cdn/js/mainbackground.js" defer></script>
+  </div>
+  <script src="script.js" type="module"></script>
 </body>
 </html>
